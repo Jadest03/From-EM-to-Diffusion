@@ -90,8 +90,10 @@ z를 $\mathcal{N}(\mu, \sigma^{2}I)$ 분포로 부터 샘플링 하는 부분은
 Reparameterization Trick은 다음과 같이 사용한다:
 
 $$
-\varepsilon \sim  \mathcal{N}(0, I) \\
-z = \mu + \sigma \odot \varepsilon
+\begin{aligned}
+\varepsilon &\sim \mathcal{N}(0, I) \\
+z &= \mu + \sigma \odot \varepsilon
+\end{aligned}
 $$
 
 이를 통해 미분이 가능하면서도 z를 $\mathcal{N}(\mu, \sigma^{2}I)$에서 샘플링하는 것과 동일한 결과를 도출할 수 있다.
