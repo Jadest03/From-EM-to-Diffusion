@@ -91,8 +91,8 @@ Reparameterization Trick은 다음과 같이 사용한다:
 
 $$
 \begin{aligned}
-\varepsilon&\sim \mathcal{N}(0, I) \\
-z&= \mu + \sigma \odot \varepsilon
+&\varepsilon \sim \mathcal{N}(0, I) \\
+&z = \mu + \sigma \odot \varepsilon
 \end{aligned}
 $$
 
