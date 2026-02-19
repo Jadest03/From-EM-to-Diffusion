@@ -15,7 +15,7 @@ $$
 q_\phi(z|x) = \mathcal{N}(z; \mu, \sigma^{2}I)
 $$
 
-추가적으로 Encoder의 출력값을 표준편차가 아닌 로그 분산($\log(\sigma^2)$)을 출력하고 해당 값에서 표준편차를 도출하도록 구현했다.
+추가적으로 Encoder의 출력값을 표준편차가 아닌 로그 분산 $(\log(\sigma^2))$을 출력하고 해당 값에서 표준편차를 도출하도록 구현했다.
 이렇게 하는 이유는 신경망에 의해 음수 값이 출력되는 것을 막기 위함이다.
 
 ## 2. Decoder
@@ -34,7 +34,7 @@ $$
 여기서 VAE의 목적인 $p(x|z)$를 모델링하기 위해 $p(x|z)$를 다음과 같이 정의한다.
 
 $$
-p_\theta = \mathcal{N}(x; \hat{x}, I)
+p_\theta(x|z) = \mathcal{N}(x; \hat{x}, I)
 $$
 
 따라서 x는 $\hat{x}$을 평균 벡터로 삼는 정규분포를 따른다.
@@ -50,14 +50,14 @@ $$
 이때 ELBO의 첫 번째항을 재구성 오차항(Reconstruction error), 두 번째 항을 규제항(Regularization)으로 정의한다.
 
 ### 3.1 재구성 오차항(Reconstruction error)
-위에서 $p(x|z)$에 대해 $p_\theta = \mathcal{N}(x; \hat{x}, I)$ 라고 정의했으므로 재구성 오차항은 MSE Loss와 동치가 되어 다음과 같다.
+위에서 $p(x|z)$에 대해 $p_\theta(x|z) = \mathcal{N}(x; \hat{x}, I)$ (정규분포)라고 정의했으므로 재구성 오차항은 MSE Loss로 표현할 수 있다.
 
 $$
 Loss_{\text{Reconstruction}} \approx \frac{1}{2} \sum_{d=1}^{D}(x_d - \hat{x_d})^{2} + C
 $$
 
 ### 3.2 규제항(Regularization)
-ELBO를 최대화하고 싶기 때문에 KL 발산항인 규제항은 0에 가까워지도록 만든다.
+ELBO를 최대화하고 싶기 때문에 KL 발산항인 규제항은 0에 가까워지도록 하며 이를 해석적으로 구한다.
 
 $$
 Loss_{\text{KL}} = -\frac{1}{2} \sum_{j=1}^{J} \left( 1 + \log(\sigma_j^2) - \mu_j^2 - \sigma_j^2 \right)
@@ -69,7 +69,7 @@ Loss는 항상 최소화시켜야하기 때문에 ELBO을 그대로 쓰지 않�
 
 $$
 \begin{aligned}
-Loss(x; \theta, \phi) &= - \text{ELBO} \\
+&Loss(x; \theta, \phi) = - \text{ELBO} \\
 &= {- \frac{1}{2} \sum_{d=1}^{D}(x_d - \hat{x_d})^{2}} + \frac{1}{2} \sum_{h=1}^{H}(1 + \log{\sigma ^{2}} - \mu^{2} - \sigma^{2}) + C
 \end{aligned}
 $$
