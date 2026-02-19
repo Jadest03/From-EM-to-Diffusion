@@ -70,7 +70,7 @@ class VAE(nn.Module):
         x_hat = self.decoder(z)
         batch_size = len(x)
         
-        # MSE Loss
+        # MSE Loss(Gaussian 이므로)
         reconstruction = F.mse_loss(x_hat, x, reduction='sum')
         # KL Loss
         KL = - torch.sum(1 + torch.log(sigma ** 2) - mu ** 2 - sigma ** 2)
