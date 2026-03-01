@@ -91,7 +91,7 @@ for iter in range(MAX_ITERS):
     current_likelihood = next_likelihood
     
 # 파라미터 저장
-np.savez('gmm_params.npz', phis=phis, mus=mus, covs=covs)
+np.savez('gmm_params.npz', phis=phis, mus=mus, covs=covs)     
 print("학습된 파라미터가 gmm_params.npz에 저장되었습니다.")
 
 # 시각화 및 비교
@@ -103,7 +103,7 @@ ax1.scatter(xs[:, 0], xs[:, 1], c=true_labels, cmap='viridis', s=10)
 ax1.set_title('실제 분포')
 
 ax2.scatter(xs[:, 0], xs[:, 1], c=predicted_labels, cmap='viridis', s=10)
-ax2.scatter(mus[:, 0], mus[:, 1], c='red', marker='X', s=100, label='Means')
-ax2.set_title('GMM을 통한 예측 분포')
+ax2.scatter(mus[:, 0], mus[:, 1], c='red', marker='X', s=100, label='Means') # 평균값 시각화
+ax2.set_title('GMM을 통한 군집화 예측 분포')
 
 plt.show()
