@@ -56,7 +56,7 @@ EM 알고리즘은 두 스텝으로 이루어져 있다.
 
 ### E-스텝
 E-스텝에서는 KL발산 항을 0으로 만들어 고정된 $\theta = \lbrace \phi, \mu, \Sigma \rbrace$ 위치에서 로그가능도와  ELBO가 같아지도록 만든다.  
-이때 $ D_{KL}(q^n(z) || p_\theta(z|x^n)) = 0 $이 되기 위해서는 $ q^n(z) = p_\theta(z|x^n) $ 이어야 한다.
+이때 $D_{KL}(q^n(z) || p_\theta(z|x^n)) = 0$이 되기 위해서는 $q^n(z) = p_\theta(z|x^n)$ 이어야 한다.
 
 $$
 \begin{aligned}
