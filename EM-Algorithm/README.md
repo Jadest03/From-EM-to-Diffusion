@@ -10,7 +10,7 @@ K개의 정규분포가 있다고 할 때, k번째 정규분포에서 출현할 
 
 $$
 \begin{aligned}
-&\phi = \left\{ \phi_1, \phi_2, \dots, \phi_K \right\} \\
+&\phi = \lbrace \phi_1, \phi_2, \dots, \phi_K \rbrace \\
 &p(z=k ; \phi) = \phi_k
 \end{aligned}
 $$
@@ -24,7 +24,7 @@ $$p(x|z=k; \mu, \Sigma) = \mathcal{N}(x; \mu_k, \Sigma_k)$$
 $$p(x) = \sum_{k=1}^{K}\phi_k\cdot \mathcal{N}(x; \mu_k, \Sigma_k)$$
 
 ## ELBO(Evidence Lower BOund)도출
-관찰가능한 확률 변수 x, 잠재변수 z, 매개변수가 $\theta = \left\{\phi, \mu, \Sigma \right\}$일 때, 로그가능도는 다음과 같이 표현할 수 있다.  
+관찰가능한 확률 변수 x, 잠재변수 z, 매개변수가 $\theta = \lbrace \phi, \mu, \Sigma \rbrace$일 때, 로그가능도는 다음과 같이 표현할 수 있다.  
 이때 $q(z)$는 로그가능도를 해석적으로 풀었을 때 발생하는 log-sum 문제를 해결하기 위해 사용한 확률분포이다.
 
 $$ logp_\theta(x) = \sum_{z}q(z)log\frac{p_\theta(x,z)}{q(z)} + D_{KL}(q(z) || p_\theta(z|x)) $$
@@ -41,7 +41,7 @@ $$ ELBO(x;q,\theta) = \sum_{z}q(z)log\frac{p_\theta(x,z)}{q(z)} $$
 즉 ELBO가 로그가능도에 최대한 가까워지도록 ELBO를 최대화시키는 것이 EM 알고리즘의 궁극적인 목표이다.  
 
 추가적으로 데이터 x가 하나가 아닌 N개이고 각 데이터에 따른 임의의 확률분포 q(z)또한 N개일 때 다음과 같이 정의할 수 있다.
-이때 전체 데이터 $X$에 대응하는 잠재 변수 집합 $Z = \{z^1, z^2, \dots, z^N\}$이 존재하고 $z$하나에 군집 K개를 가지고 있으므로 다음과 같이 표현할 수 있다.  
+이때 전체 데이터 $X$에 대응하는 잠재 변수 집합 $Z = \lbrace z^1, z^2, \dots, z^N \rbrace$이 존재하고 $z$하나에 군집 K개를 가지고 있으므로 다음과 같이 표현할 수 있다.  
 
 $$
 \begin{aligned}
@@ -55,7 +55,7 @@ $$
 EM 알고리즘은 두 스텝으로 이루어져 있다.  
 
 ### E-스텝
-E-스텝에서는 KL발산 항을 0으로 만들어 고정된 $\theta = \left\{\phi, \mu, \Sigma \right\}$ 위치에서 로그가능도와  ELBO가 같아지도록 만든다.
+E-스텝에서는 KL발산 항을 0으로 만들어 고정된 $\theta = \lbrace \phi, \mu, \Sigma \rbrace$ 위치에서 로그가능도와  ELBO가 같아지도록 만든다.
 이때 $ D_{KL}(q^n(z) || p_\theta(z|x^n)) = 0 $이 되기 위해서는 $ q^n(z) = p_\theta(z|x^n) $ 이어야 한다.
 
 $$
@@ -68,7 +68,7 @@ $$
 
 ### M-스텝
 M-스텝에서는 ELBO가 최대화되는 때의 $\theta$를 찾는다.  
-E-스텝에서 구한 $q^n$을 고정하고 $\theta = \left\{\phi, \mu, \Sigma\right\}$를 갱신한다.  
+E-스텝에서 구한 $q^n$을 고정하고 $\theta = \lbrace \phi, \mu, \Sigma \rbrace$를 갱신한다.  
 그러기 위해서는 ELBO값을 미분하여 값이 최대화 되는 $\theta$를 구하면 된다.  
 ELBO식으로 부터 매개변수 $\theta$와 관련있는 항을 목적함수로 정의하고 그때 정의한 목적함수는 다음과 같다.  
 
