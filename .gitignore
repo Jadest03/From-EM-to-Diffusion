@@ -9,4 +9,4 @@ __pycache__/
 *.pth
 *.npz
 
-basic_ddpm.py
+Diffusion/basic_ddpm.py
