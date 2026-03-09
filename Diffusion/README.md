@@ -2,13 +2,15 @@
 해당 저장소에서는 DDPM에 대해 설명하고 구현한다.
 
 ## 1. DDPM 설명
-DDPM에 대한 개념과 수식설명은 다음 블로그에서 확인하실 수 있습니다.
+DDPM에 대한 개념과 수식설명은 다음 블로그에서 확인하실 수 있습니다.  
+
 [DDPM(Denoising Diffusion Probabilistic Models) 논문 리뷰](https://velog.io/@jjadestarr/DDPMDenoising-Diffusion-Probabilistic-Models-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0)
 
 ## 2. Model Architecture
 
 ### Loss Function
 논문에서 정의된 Simplified Loss Function을 사용합니다.
+
 $$
 \begin{aligned}
 &x_0 \sim q(x_0) \\
