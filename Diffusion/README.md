@@ -14,9 +14,9 @@ DDPM에 대한 개념과 수식설명은 다음 블로그에서 확인하실 수
 $$
 \begin{aligned}
 &x_0 \sim q(x_0) \\
-&t \sim Uniform \left\{1, T \right\} \\
-&\epsilon \sim \mathcal{N}(0,I) \\
-&Loss = \left\|\epsilon - \epsilon_\theta(\sqrt{\bar{\alpha}_t}x_0 + \sqrt{1 - \bar{\alpha}_t}\epsilon, t) \right\|^2
+&t \sim \text{Uniform} \left\{ 1, T \right\} \\
+&\epsilon \sim \mathcal{N}(0, I) \\
+&\mathcal{L} = \left\| \epsilon - \epsilon_\theta(\sqrt{\bar{\alpha}_t}x_0 + \sqrt{1 - \bar{\alpha}_t}\epsilon, t) \right\|^2
 \end{aligned}
 $$
 
