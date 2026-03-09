@@ -14,7 +14,7 @@ DDPM에 대한 개념과 수식설명은 다음 블로그에서 확인하실 수
 $$
 \begin{aligned}
 &x_0 \sim q(x_0) \\
-&t \sim Uniform{1, T} \\
+&t \sim Uniform \left\{1, T \right\} \\
 &\epsilon \sim \mathcal{N}(0,I) \\
 &Loss = \left\|\epsilon - \epsilon_\theta(\sqrt{\bar{\alpha}_t}x_0 + \sqrt{1 - \bar{\alpha}_t}\epsilon, t) \right\|^2
 \end{aligned}
@@ -43,5 +43,5 @@ python ddpm_generate.py
 ![image](../images/ddpm_gen_50epoch.png)
 
 ##### 2 ) 800epochs 에서의 샘플링 결과
-![image](../images/ddpm_gen_700epoch.png)
+![image](../images/ddpm_gen_800epoch.png)
 
